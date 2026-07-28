@@ -10,10 +10,10 @@
 <style>
 
   /* ============================================================
-     To the most special person in my life!
+     EDIT ME — everything you need to personalize is right here
      ============================================================ */
   :root{
-    --her-name: "fiza";              /* used only as a fallback label */
+    --her-name: "fiza";               /* used only as a fallback label */
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -58,8 +58,6 @@
 
   /* ============================================================
      FLOATING PETALS
-     RULE: small ambient motion behind a big emotional moment makes
-     it feel alive without competing with the text on top of it.
      ============================================================ */
   .petal{
     position:absolute;
@@ -77,8 +75,6 @@
 
   /* ============================================================
      MAIN SITE
-     RULE: hidden (not just behind the countdown) until the reveal,
-     so it can't flash or be scrolled to early.
      ============================================================ */
   #main-site{
     opacity:0;
@@ -258,6 +254,23 @@
   footer .hand{ font-size:1.7rem; color:var(--sage-deep); }
   footer .small{ font-size:0.85rem; color:var(--taupe-light); margin-top:0.5rem; }
 
+  .footer-cta{
+    display:inline-block;
+    margin-top:2rem;
+    font-family:'Quicksand', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    letter-spacing:0.03em;
+    color:var(--white);
+    background:var(--sage);
+    text-decoration:none;
+    padding:0.85rem 2.2rem;
+    border-radius:40px;
+    box-shadow:0 8px 20px var(--shadow);
+    transition:transform 0.25s ease, background 0.25s ease;
+  }
+  .footer-cta:hover{ background:var(--sage-deep); transform:translateY(-2px); }
+
   .fade-in{
     opacity:0;
     transform:translateY(20px);
@@ -267,9 +280,6 @@
 
   /* ============================================================
      SCRAPBOOK TOUCHES
-     RULE: a perfectly aligned grid reads as generated. A slight
-     tilt, a piece of tape, a hand-drawn line reads as handmade —
-     so nothing here is perfectly straight on purpose.
      ============================================================ */
   .section-title::after{
     content:'';
@@ -352,39 +362,48 @@
     inset:0;
     z-index:110;
     display:none;
-    align-items:center;
-    justify-content:center;
     background:
       radial-gradient(circle at 25% 30%, var(--sage-pale) 0%, transparent 45%),
       radial-gradient(circle at 75% 70%, var(--blush-pale) 0%, transparent 50%),
       var(--cream);
     text-align:center;
-    padding:3rem 2rem;
+    padding:3rem 1rem;
     overflow-y:auto;
+    overflow-x:hidden;
+    width:100vw;
+    height:100vh;
   }
-  #reveal-sequence.active{ display:flex; }
+  #reveal-sequence.active{ display:block; }
 
   .reveal-step{
     position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) scale(0.9);
     font-family:'Caveat', cursive;
     font-size:clamp(1.7rem, 5vw, 2.5rem);
     color:var(--taupe);
     max-width:80%;
     opacity:0;
-    transform:scale(0.9);
     transition:opacity 0.5s ease, transform 0.5s ease;
   }
-  .reveal-step.show{ opacity:1; transform:scale(1); }
+  .reveal-step.show{ opacity:1; transform:translate(-50%, -50%) scale(1); }
 
+  /* FIXED BOOM-STEP LAYOUT ALIGNMENT */
   .boom-step{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    max-width:640px;
-    margin:auto;
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    display:block !important;
+    width:100% !important;
+    max-width:680px !important;
+    margin:4vh auto 4rem auto !important;
+    padding:0 1rem !important;
+    opacity:1 !important;
+    transform:none !important;
+    box-sizing:border-box !important;
   }
+  .boom-step.show{ position:relative !important; opacity:1 !important; transform:none !important; }
 
   .boom-text{
     font-family:'Cormorant Garamond', serif;
@@ -398,16 +417,103 @@
   .boom-text .her-name{ font-style:italic; color:var(--sage-deep); }
   .boom-step.show .boom-text{ opacity:1; transform:scale(1); }
 
-  .boom-paragraph{
+  /* ---------- THEN & NOW PHOTOS ---------- */
+  .boom-photos-wrap{
+    position:relative;
     margin-top:1.6rem;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+  }
+  .boom-step.show .boom-photos-wrap{ opacity:1; transform:translateY(0); }
+
+  .boom-photos{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1.2rem;
+    flex-wrap:wrap;
+  }
+
+  .photo-frame{
+    position:relative;
+    width:118px;
+    background:var(--white);
+    padding:0.5rem 0.5rem 0.8rem;
+    border-radius:10px;
+    box-shadow:0 10px 22px var(--shadow);
+  }
+  .photo-frame:nth-child(1){ transform:rotate(-4deg); }
+  .photo-frame:nth-child(3){ transform:rotate(4deg); }
+
+  .photo-tape{
+    position:absolute;
+    top:-8px; left:50%;
+    width:44px; height:16px;
+    background:rgba(255,255,255,0.65);
+    transform:translateX(-50%) rotate(-4deg);
+    border-radius:2px;
+    box-shadow:0 1px 3px var(--shadow);
+    z-index:2;
+  }
+
+  .boom-photo{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:5px;
+  }
+
+  .photo-placeholder{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:5px;
+    background:var(--sage-pale);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:0.3rem;
+    color:var(--taupe-light);
+    font-size:0.62rem;
+    line-height:1.3;
+    text-align:center;
+    padding:0.5rem;
+  }
+  .photo-frame:nth-child(3) .photo-placeholder{ background:var(--blush-pale); }
+
+  .photo-caption{
+    margin-top:0.5rem;
+    text-align:center;
+    font-family:'Caveat', cursive;
+    font-size:0.95rem;
+    color:var(--taupe-light);
+  }
+
+  .photo-connector{ color:var(--blush-deep); animation:bubble-pulse 2s ease-in-out infinite; }
+  .photo-connector svg{ width:24px; height:24px; }
+
+  .boom-doodle{ position:absolute; opacity:0.8; pointer-events:none; animation:twinkle 2.4s ease-in-out infinite; }
+  @keyframes twinkle{
+    0%,100%{ opacity:0.45; transform:scale(0.85) rotate(0deg); }
+    50%{ opacity:1; transform:scale(1.1) rotate(10deg); }
+  }
+  .doodle-1{ top:-16px; left:6px; width:20px; color:var(--gold); }
+  .doodle-2{ top:-12px; right:4px; width:18px; color:var(--blush-deep); animation-delay:0.5s; }
+  .doodle-3{ bottom:-14px; left:42%; width:16px; color:var(--sage); animation-delay:1s; }
+
+  .boom-paragraph{
+    margin:1.6rem auto 0;
     font-family:'Caveat', cursive;
     font-size:1.35rem;
     line-height:1.75;
     color:var(--taupe-light);
-    max-width:56ch;
+    max-width:100%;
+    text-align:center;
     opacity:0;
     transform:translateY(10px);
-    transition:opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+    transition:opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
   }
   .boom-step.show .boom-paragraph{ opacity:1; transform:translateY(0); }
 
@@ -519,10 +625,7 @@
   .music-tip.show{ opacity:1; transform:translateY(0); }
 
   /* ============================================================
-     GATE SCREEN — the very first thing she sees
-     RULE: one small, delightful action before anything else is
-     asked of her. A tap that visibly does something (envelope
-     opens, teddy reacts) earns her attention for what follows.
+     GATE SCREEN
      ============================================================ */
   #gate-screen{
     position:fixed;
@@ -539,6 +642,7 @@
       var(--cream);
     cursor:pointer;
     transition:opacity 0.7s ease;
+    overflow:hidden;
   }
   #gate-screen.fading{ opacity:0; pointer-events:none; }
 
@@ -650,6 +754,22 @@
     animation:bubble-pulse 2.4s ease-in-out infinite;
   }
 
+  .gate-music-note{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    background:var(--white);
+    border:1px solid var(--sage-light);
+    border-radius:30px;
+    padding:0.55rem 1.1rem;
+    box-shadow:0 6px 16px var(--shadow);
+    color:var(--taupe);
+    font-size:1.05rem;
+  }
+  .gate-music-note svg{ width:18px; height:18px; color:var(--sage-deep); flex-shrink:0; }
+  #gate-screen.fading .gate-music-note,
+  #gate-screen.fading .gate-hint{ opacity:0; transition:opacity 0.4s ease; }
+
 </style>
 </head>
 <body>
@@ -668,7 +788,46 @@
     <circle cx="18" cy="16" r="3"></circle>
   </svg>
 </button>
-<div class="music-tip" id="music-tip">turn me up a little 🎧 — it's better with the volume up</div>
+<div class="music-tip" id="music-tip">🎧 itss better with the volume up!!</div>
+
+<div id="gate-screen">
+  <div class="gate-scene">
+    <svg class="gate-rose" width="50" height="80" viewBox="0 0 60 90">
+      <line x1="30" y1="50" x2="30" y2="88" stroke="#93A67F" stroke-width="3"></line>
+      <path d="M20 70 Q8 78 22 83" stroke="#93A67F" stroke-width="3" fill="none" stroke-linecap="round"></path>
+      <circle cx="30" cy="25" r="16" fill="#E8BFBB"></circle>
+      <circle cx="21" cy="19" r="10" fill="#D99992"></circle>
+      <circle cx="39" cy="19" r="10" fill="#D99992"></circle>
+      <circle cx="30" cy="13" r="10" fill="#F3DEDB"></circle>
+    </svg>
+    <div class="gate-envelope">
+      <div class="gate-envelope-body"></div>
+      <div class="gate-envelope-letter"></div>
+      <div class="gate-envelope-flap"></div>
+    </div>
+    <div class="gate-teddy">
+      <div class="teddy-bubble hand">hiee cutie, click croww! 🐾</div>
+      <svg width="86" height="86" viewBox="0 0 120 120">
+        <circle cx="28" cy="28" r="15" fill="#C9A66B"></circle>
+        <circle cx="92" cy="28" r="15" fill="#C9A66B"></circle>
+        <circle cx="60" cy="62" r="42" fill="#D9B77E"></circle>
+        <ellipse cx="60" cy="74" rx="20" ry="16" fill="#F1DDBB"></ellipse>
+        <circle cx="46" cy="54" r="5" fill="#5A4632"></circle>
+        <circle cx="74" cy="54" r="5" fill="#5A4632"></circle>
+        <ellipse cx="60" cy="72" rx="5" ry="4" fill="#5A4632"></ellipse>
+        <path d="M60 76 Q60 82 52 82" stroke="#5A4632" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+        <path d="M60 76 Q60 82 68 82" stroke="#5A4632" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="gate-music-note hand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+    <span>grab ur earphonesss🎧</span>
+  </div>
+
+  <p class="gate-hint">smol efforts for the girl who always makes me feel so special, now it's my turn!! i hope this makes you smile ^.^</p>
+</div>
 
 <div id="reveal-sequence">
   <div class="reveal-step" data-step="0">to the softest heart i know..</div>
@@ -676,14 +835,91 @@
   <div class="reveal-step" data-step="2">to my safe space..</div>
   <div class="reveal-step boom-step" data-step="3">
     <div id="boom-confetti"></div>
-    <h1 class="boom-text">happy 19th birthday,<br><span class="her-name">fizaaa</span></h1>
+    <h1 class="boom-text">happyyy 19th birthdayyy,<br><span class="her-name">fizaaa</span></h1>
+
+    <div class="boom-photos-wrap">
+      <svg class="boom-doodle doodle-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 9 L24 12 L14 15 L12 24 L10 15 L0 12 L10 9 Z"></path></svg>
+      <svg class="boom-doodle doodle-2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5 6 5c2 0 3.5 1.2 4 2.5C10.5 6.2 12 5 14 5c3.5 0 5 4 3.5 7.5C19 16.65 12 21 12 21z"></path></svg>
+      <svg class="boom-doodle doodle-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 9 L24 12 L14 15 L12 24 L10 15 L0 12 L10 9 Z"></path></svg>
+
+      <div class="boom-photos">
+        <div class="photo-frame">
+          <div class="photo-tape"></div>
+          <img src="her-then.jpg" alt="her as a kid" class="boom-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="photo-placeholder" style="display:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+            <span>save her childhood photo as "her-then.jpg" next to this file</span>
+          </div>
+          <p class="photo-caption">awww 🌱</p>
+        </div>
+
+        <div class="photo-connector">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5 6 5c2 0 3.5 1.2 4 2.5C10.5 6.2 12 5 14 5c3.5 0 5 4 3.5 7.5C19 16.65 12 21 12 21z"></path></svg>
+        </div>
+
+        <div class="photo-frame">
+          <div class="photo-tape"></div>
+          <img src="her-now.jpg" alt="her now" class="boom-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="photo-placeholder" style="display:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+            <span>save her current photo as "her-now.jpg" next to this file</span>
+          </div>
+          <p class="photo-caption">AWWW 💛</p>
+        </div>
+      </div>
+    </div>
+
     <p class="boom-paragraph hand">I don't know if I've ever been able to tell you this properly, but thank you... for becoming such an important part of my life.
-It's funny how two strangers met one random day on Omegle, and somehow, without either of us planning it, we ended up talking every single day for more than a year. Somewhere between those endless chats, late-night conversations, random discussions, Discord study sessions, solving questions together, making comeback plans that we never really followed, and those long voice calls in the beginning... you slowly became one of my favourite people. Now, talking to you doesn't feel like a habit anymore—it feels like a part of my day that's simply incomplete without you.
+</p>
+    <button class="reveal-continue" id="reveal-continue">aage chalein? →</button>
+  </div>
+</div>
+
+<div id="main-site">
+
+  <section id="hero">
+    <span class="hero-eyebrow">a little corner of the internet, just for u</span>
+    <h1 class="hero-title">happy birthday, <span class="her-name">bestie</span></h1>
+    <p class="hero-sub">i'll try to find the right words for how much you mean to me!! </p>
+    <div class="divider"></div>
+  </section>
+
+  <section id="timeline">
+    <span class="section-eyebrow">our storyy so far</span>
+    <h2 class="section-title">ummmm</h2>
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">the besttt year</div>
+        <div class="timeline-card">
+          <h3>god's plan fs, haina? </h3>
+          <p>i still wonder how lucky that moment was. what were the chances that i would meet you? we could have skipped each other in a second, our chat could have ended like every other random convo, and we might have never spoken again. but somehow, none of that happened. We Stayed! We Talked! and you became the most precious parts of my life.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">todayy</div>
+        <div class="timeline-card">
+          <h3> ^^ </h3>
+          <p>celebrating the person who supported me when i needed the mostt, im so sooo happyyy todayy!!! </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="letter">
+    <span class="section-eyebrow">uhmm, the part I actually sat down to write</span>
+    <h2 class="section-title">a paragraph, for youuu</h2>
+    <div class="letter-card fade-in">
+      <div class="letter-mark">"</div>
+      <p class="letter-text">
+       It's funny how two strangers met one random day on Omegle, and somehow, without either of us planning it, we ended up talking every single day for more than a year. Somewhere between those endless chats, late-night conversations, random discussions, Discord study sessions, solving questions together, making comeback plans that we never really followed, and those long voice calls in the beginning... you slowly became one of my favourite people. Now, talking to you doesn't feel like a habit anymore—it feels like a part of my day that's simply incomplete without you.
 Whenever I think about this journey, one memory always stays closest to my heart. During my board exams, when I was alone in another state, you were always there. Every message, every "you can do it," every little bit of support meant so much more than you probably realized. Those moments are something I'll carry with me forever. Thank you for standing beside me when I needed someone. I'll never forget it.
 There is something about you that I've always admired. You're kind in a way that's so effortless. You understand people without making them feel judged. Even during the times when I acted immaturely, got angry over silly things, or made absolutely no sense, you never made me feel like I was a bad person. Instead, you always reminded me that you knew the real Abhinav. That trust you've shown me... it's one of the most precious things I've ever received, and I hope I always remain someone worthy of it.
 Now I want you to listen to me carefully, because this is probably the most important thing I'll ever say to you.
-Please stop being so hard on yourself.
-I know you think you've wasted too much time. I know you feel guilty about the months that slipped away after boards. I know JEE sometimes feels scary enough to make you question yourself. But Fiza, your journey isn't defined by a few difficult months. Those months don't decide your future—you do.
+Please stop being so hard on yourself. <br>
+I know you think you've wasted too much time.<br> I know you feel guilty about the months that slipped away after boards. <br> I know JEE sometimes feels scary enough to make you question yourself. But Fiza, your journey isn't defined by a few difficult months. Those months don't decide your future—you do.
 Whenever your mind tells you that you're running out of time, I want you to remember this letter. There is still so much time left to write the story we're dreaming about. One chapter can never decide the ending of a book.
 And about Physics...
 I know you don't always feel confident with it, but from today onwards, I want you to remember one thing: you are never fighting Physics alone.
@@ -697,129 +933,47 @@ Whenever you feel tired, I'll remind you why you started.
 Whenever you feel scared, I'll remind you how capable you are.
 Whenever you lose confidence, I'll believe in you until you find your own belief again.
 And when I have those days, I know you'll probably do the same for me.
-I genuinely believe that one day we'll look back at these stressful days and smile. We'll remember the endless syllabus, the panic before mock tests, the random study sessions, the complaints, the motivation speeches, and laugh about how impossible everything used to feel.</p>
-    <button class="reveal-continue" id="reveal-continue">keep going →</button>
-  </div>
-</div>
-
-<div id="main-site">
-
-  <section id="hero">
-    <span class="hero-eyebrow">a little corner of the internet, just for u</span>
-    <h1 class="hero-title">happy birthday, <span class="her-name">bestie</span></h1>
-    <p class="hero-sub">i'll try to find the right words for how much you mean to me!</p>
-    <div class="divider"></div>
-  </section>
-
-  <section id="timeline">
-    <span class="section-eyebrow">our storyy so far</span>
-    <h2 class="section-title">a timelinee</h2>
-    <div class="timeline">
-
-      <div class="timeline-item fade-in">
-        <div class="timeline-date">the besttt year</div>
-        <div class="timeline-card">
-          <h3>god's plan fs</h3>
-          <p>i still wonder how lucky that moment was. what were the chances that i would meet you? we could have skipped each other in a second, our chat could have ended like every other random convo, and we might have never spoken again. but somehow, none of that happened. We Stayed! We Talked! and you became the most precious parts of my life. </p>
-        </div>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <div class="timeline-date">today</div>
-        <div class="timeline-card">
-          <h3>and now, this</h3>
-          <p>a little site, built because you deserve!!!</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="letter">
-    <span class="section-eyebrow">the part I actually sat down to write</span>
-    <h2 class="section-title">a whole paragraph, for you</h2>
-    <div class="letter-card fade-in">
-      <div class="letter-mark">"</div>
-      <p class="letter-text">
-        We'll celebrate. We'll go to Lucknow. We'll eat Tunday Kababi without worrying about the next day's syllabus. We'll laugh at all the things that once stressed us out. We'll finally breathe.
-
-I don't know which college life will take us to.
-
-But I do know this.
-
-I'm going to work as hard as I possibly can, not just for myself, but because I genuinely want both of us to end up in colleges we're proud of. Deep down, I still hope that destiny is kind enough to let us walk into the same campus one day. And if that happens, I think it'll be one of the happiest moments of my life.
-
-But no matter where we end up, promise me one thing.
-
-Don't ever measure your worth using a rank.
-
-An exam can decide a college.
-
-It can never decide the kind of person you are.
-
-And you, Fiza, are already someone incredibly special.
-
-You're thoughtful.
-
-You're patient.
-
-You're strong, even when you don't realize it.
-
-You make people feel safe.
-
-You make people feel heard.
-
-And you've made my life better simply by being in it.
-
-Thank you for every conversation.
-
-Thank you for every laugh.
-
-Thank you for every moment you believed in me.
-
-Thank you for making ordinary days feel special without even trying.
-
-I don't know what the future holds for us.
-
-But I do know one thing with complete certainty—
-
-No matter how difficult this journey gets, you'll always have someone cheering for you, praying for you, believing in you, and reminding you that you're capable of achieving things far bigger than your fears.
-
-So on your birthday, I don't wish for miracles.
-
-I wish for your smile to stay exactly the way it is.
-
-I wish for your confidence to grow stronger every day.
-
-I wish for peace in your heart.
-
-I wish for happiness that doesn't depend on marks or ranks.
-
-And I wish that one year from now, we'll both read this again—from the campuses we worked so hard to reach—and smile because we never gave up on ourselves... or on each other.
-
-Happy Birthday, Fiza.
-
-Thank you for existing.
-
-And thank you for making this journey so much brighter than it would've ever been without you.
-
-Here's to our comeback.
-
-Here's to JEE.
-
-Here's to us proving ourselves.
-
-And here's to meeting one day after all of this, sitting together with a plate of Tunday Kababi, laughing at how scared we once were.
-
-Until then...
-
-You've got this.
-
-And whenever you forget that...
-
-You've got me.
+I genuinely believe that one day we'll look back at these stressful days and smile. We'll celebrate. We'll go to Lucknow. We'll eat Tunday Kababi without worrying about the next day's syllabus. We'll laugh at all the things that once stressed us out. We'll finally breathe.<br><br>
+        I don't know which college life will take us to.<br><br>
+        But I do know this.<br><br>
+        I'm going to work as hard as I possibly can, not just for myself, but because I genuinely want both of us to end up in colleges we're proud of. Deep down, I still hope that destiny is kind enough to let us walk into the same campus one day. And if that happens, I think it'll be one of the happiest moments of my life.<br><br>
+        But no matter where we end up, promise me one thing.<br><br>
+        Don't ever measure your worth using a rank.<br><br>
+        An exam can decide a college.<br><br>
+        It can never decide the kind of person you are.<br><br>
+        And you, Fiza, are already someone incredibly special.<br><br>
+        You're thoughtful.<br>
+        You're patient.<br>
+        You're strong, even when you don't realize it.<br>
+        You make people feel safe.<br>
+        You make people feel heard.<br><br>
+        And you've made my life better simply by being in it.<br><br>
+        Thank you for every conversation.<br>
+        Thank you for every laugh.<br>
+        Thank you for every moment you believed in me.<br>
+        Thank you for making ordinary days feel special without even trying.<br><br>
+        I don't know what the future holds for us.<br><br>
+        But I do know one thing with complete certainty—<br><br>
+        No matter how difficult this journey gets, you'll always have someone cheering for you, praying for you, believing in you, and reminding you that you're capable of achieving things far bigger than your fears.<br><br>
+        So on your birthday, I don't wish for miracles.<br><br>
+        I wish for your smile to stay exactly the way it is.<br>
+        I wish for your confidence to grow stronger every day.<br>
+        I wish for peace in your heart.<br>
+        I wish for happiness that doesn't depend on marks or ranks.<br><br>
+        And I wish that one year from now, we'll both read this again—from the campuses we worked so hard to reach—and smile because we never gave up on ourselves... or on each other.<br><br>
+        Happy Birthday, Fiza.<br><br>
+        Thank you for existing.<br><br>
+        And thank you for making this journey so much brighter than it would've ever been without you.<br><br>
+        Here's to our comeback.<br>
+        Here's to JEE.<br>
+        Here's to us proving ourselves.<br><br>
+        And here's to meeting one day after all of this, sitting together with a plate of Tunday Kababi, laughing at how scared we once were.<br><br>
+        Until then...<br><br>
+        You've got this.<br><br>
+        And whenever you forget that...<br><br>
+        You've got me.
       </p>
-      <p class="letter-sign">— love, always</p>
+      <p class="letter-sign">— im heree, always!</p>
     </div>
   </section>
 
@@ -827,15 +981,15 @@ You've got me.
     <span class="section-eyebrow">ok, one more thing</span>
     <h2 class="section-title">scratch to find out</h2>
     <div class="scratch-wrap fade-in">
-      <div class="scratch-message hand" id="scratch-message">if you're reading this, i'm probably cheering for u rn. drink some water, take a deep breath, and start again. abhinav hasn't given up, so fiza is not allowed to give up either. I BELIEVE IN YOUU!!! (hug)</div>
+      <div class="scratch-message hand" id="scratch-message">hiee...if you're reading this, i'm probably cheering for u rn. drink some water, take a deep breath, and start again. abhinav hasn't given up, so fiza is not allowed to give up either. I BELIEVE IN YOUU!!! (hug)</div>
       <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
     </div>
-    <p style="text-align:center; font-size:0.85rem; color:var(--taupe-light); margin-top:1.2rem;"></p>
+    <p style="text-align:center; font-size:0.85rem; color:var(--taupe-light); margin-top:1.2rem;">click and drag across it</p>
   </section>
 
   <section id="proud">
     <span class="section-eyebrow">scratch this whenever jee feels overwhelming and you forget how strong u're</span>
-    <h2 class="section-title">things I'm proud of you for</h2>
+    <h2 class="section-title">aur haaan,</h2>
     <p class="envelope-intro">tap an envelope to open it</p>
     <div class="envelope-grid">
 
@@ -845,7 +999,7 @@ You've got me.
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
             <span>open me</span>
           </div>
-          <div class="envelope-face envelope-back">im proud of how strong u are</div>
+          <div class="envelope-face envelope-back">im proud of you fiza</div>
         </div>
       </div>
 
@@ -855,7 +1009,7 @@ You've got me.
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
             <span>open me</span>
           </div>
-          <div class="envelope-face envelope-back">im proud of how mature u are</div>
+          <div class="envelope-face envelope-back">thankyousomuch for never judging me </div>
         </div>
       </div>
 
@@ -865,7 +1019,7 @@ You've got me.
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
             <span>open me</span>
           </div>
-          <div class="envelope-face envelope-back">im proud of how deeply you care for people</div>
+          <div class="envelope-face envelope-back">aur han, im really sorry for the fights we had. </div>
         </div>
       </div>
 
@@ -875,17 +1029,27 @@ You've got me.
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
             <span>open me</span>
           </div>
-          <div class="envelope-face envelope-back">and of our tunday kabab promisee</div>
+          <div class="envelope-face envelope-back"> i apologise for all my statements that hurted you (please bhul jao sb).  </div>
+        </div>
+      </div>    
+
+    <div class="envelope fade-in">
+        <div class="envelope-inner">
+          <div class="envelope-face envelope-front">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+            <span>open me</span>
+          </div>
+          <div class="envelope-face envelope-back"> now, imma gud boy!!! (party m invite krlena ab okey?) </div>
         </div>
       </div>
 
-      
     </div>
   </section>
 
   <footer>
-    <p class="hand">happy birthday, my favorite person 🌿</p>
-    <p class="small">made with love — apka abhinav</p>
+    <p class="hand">ENJOY YOUR DAYYY🌿</p>
+    <p class="small">— apka abhinav</p>
+    <a href="https://t.me/revotron_abhinav" target="_blank" rel="noopener" class="footer-cta">click here to come back to meee →</a>
   </footer>
 
 </div>
@@ -897,7 +1061,7 @@ You've got me.
      Every ".her-name" element on the page updates automatically.
      ============================================================ */
   const CONFIG = {
-    herName: "fiza"
+    herName: "fizaaa"
   };
 
   document.querySelectorAll('.her-name').forEach(el => { el.textContent = CONFIG.herName; });
@@ -966,8 +1130,6 @@ You've got me.
       seq.classList.remove('active');
       mainSite.classList.add('revealed');
       document.body.style.overflow = 'auto';
-      setMusic(true); /* this whole sequence started from a real click, so autoplay is allowed */
-      showMusicTip();
     }
 
     step();
@@ -995,7 +1157,23 @@ You've got me.
     container.appendChild(p);
   }
 
-  playRevealSequence(); /* the site opens straight into the praise sequence — no landing page */
+  const gateScreen = document.getElementById('gate-screen');
+  const gateScene = gateScreen.querySelector('.gate-scene');
+
+  function openGate(){
+    if(gateScene.classList.contains('opening')) return;
+    gateScene.classList.add('opening');
+    setMusic(true); /* she just tapped the gate — that's a real user gesture, so the music can start right here */
+    showMusicTip();
+    setTimeout(() => { gateScreen.classList.add('fading'); }, 900);
+    setTimeout(() => {
+      gateScreen.style.display = 'none';
+      playRevealSequence(); /* countdown/praise sequence begins only after she opens the gate */
+    }, 1650);
+  }
+
+  gateScreen.addEventListener('click', openGate);
+  gateScreen.addEventListener('touchstart', openGate, { passive:true });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
