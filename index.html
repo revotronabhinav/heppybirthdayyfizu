@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>happy birthday, fizaaa 🌿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  /* ============================================================
+     To the most special person in my life!
+     ============================================================ */
+  :root{
+    --her-name: "fiza";              /* used only as a fallback label */
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --cream: #FBF6EE;
+    --cream-deep: #F2E9D8;
+    --white: #FFFDF9;
+    --sage: #93A67F;
+    --sage-deep: #6E815B;
+    --sage-light: #C7D4B8;
+    --sage-pale: #E7EEDD;
+    --blush: #E8BFBB;
+    --blush-deep: #D99992;
+    --blush-pale: #F5E2DF;
+    --taupe: #6B5D52;
+    --taupe-light: #9C8C7E;
+    --gold: #C9A66B;
+    --shadow: rgba(107, 93, 82, 0.14);
+  }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Quicksand', sans-serif;
+    background:var(--cream);
+    color:var(--taupe);
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .serif{
+    font-family:'Cormorant Garamond', serif;
+    color:var(--taupe);
+    font-weight:600;
+  }
+
+  .hand{
+    font-family:'Caveat', cursive;
+  }
+
+  img { max-width:100%; display:block; }
+
+  /* ============================================================
+     FLOATING PETALS
+     RULE: small ambient motion behind a big emotional moment makes
+     it feel alive without competing with the text on top of it.
+     ============================================================ */
+  .petal{
+    position:absolute;
+    border-radius:50% 0 50% 50%;
+    opacity:0.55;
+    animation:drift linear infinite;
+  }
+
+  @keyframes drift{
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:0.55; }
+    90%{ opacity:0.5; }
+    100%{ transform:translateY(-110vh) rotate(200deg); opacity:0; }
+  }
+
+  /* ============================================================
+     MAIN SITE
+     RULE: hidden (not just behind the countdown) until the reveal,
+     so it can't flash or be scrolled to early.
+     ============================================================ */
+  #main-site{
+    opacity:0;
+    transition:opacity 1.2s ease;
+  }
+  #main-site.revealed{ opacity:1; }
+
+  section{
+    padding:6rem 1.5rem;
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    text-align:center;
+    padding-top:7rem;
+    position:relative;
+  }
+
+  .hero-eyebrow{
+    font-family:'Caveat', cursive;
+    font-size:1.6rem;
+    color:var(--blush-deep);
+  }
+
+  .hero-title{
+    font-size:clamp(2.6rem, 7vw, 4.2rem);
+    margin:0.4rem 0 1rem;
+    line-height:1.1;
+  }
+
+  .hero-title .her-name{
+    font-style:italic;
+    color:var(--sage-deep);
+  }
+
+  .hero-sub{
+    max-width:46ch;
+    margin:0 auto;
+    color:var(--taupe-light);
+    font-size:1.05rem;
+    line-height:1.7;
+  }
+
+  .divider{
+    width:64px;
+    height:2px;
+    background:var(--sage-light);
+    margin:3rem auto;
+    border-radius:2px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-eyebrow{
+    font-family:'Caveat', cursive;
+    font-size:1.4rem;
+    color:var(--sage-deep);
+    text-align:center;
+    display:block;
+  }
+
+  .section-title{
+    text-align:center;
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin:0.2rem 0 3rem;
+  }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    position:relative;
+    padding-left:0;
+  }
+
+  .timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:var(--sage-light);
+    transform:translateX(-50%);
+  }
+
+  .timeline-item{
+    position:relative;
+    width:50%;
+    padding:0 3rem 3.5rem;
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .timeline-item.in-view{ opacity:1; transform:translateY(0); }
+
+  .timeline-item:nth-child(odd){ left:0; text-align:right; }
+  .timeline-item:nth-child(even){ left:50%; text-align:left; }
+
+  .timeline-item::after{
+    content:'';
+    position:absolute;
+    top:4px;
+    width:14px; height:14px;
+    border-radius:50%;
+    background:var(--blush);
+    border:3px solid var(--cream);
+    box-shadow:0 0 0 2px var(--sage-light);
+  }
+
+  .timeline-item:nth-child(odd)::after{ right:-8px; }
+  .timeline-item:nth-child(even)::after{ left:-8px; }
+
+  .timeline-date{
+    font-family:'Caveat', cursive;
+    font-size:1.3rem;
+    color:var(--blush-deep);
+  }
+
+  .timeline-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:1.2rem 1.5rem;
+    margin-top:0.5rem;
+    box-shadow:0 6px 18px var(--shadow);
+  }
+
+  .timeline-card h3{ font-size:1.3rem; margin-bottom:0.3rem; }
+  .timeline-card p{ font-size:0.95rem; color:var(--taupe-light); line-height:1.6; }
+
+  @media (max-width:640px){
+    .timeline::before{ left:18px; }
+    .timeline-item{ width:100%; padding:0 0 2.5rem 3rem; text-align:left !important; }
+    .timeline-item:nth-child(even){ left:0; }
+    .timeline-item::after{ left:11px !important; right:auto !important; }
+  }
+
+  /* ---------- LETTER ---------- */
+  .letter-card{
+    background:var(--white);
+    border-radius:24px;
+    padding:3rem clamp(1.5rem, 6vw, 4rem);
+    box-shadow:0 10px 28px var(--shadow);
+    position:relative;
+  }
+
+  .letter-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:3.5rem;
+    color:var(--sage-light);
+    line-height:1;
+  }
+
+  .letter-text{
+    font-family:'Caveat', cursive;
+    font-size:1.55rem;
+    line-height:1.75;
+    color:var(--taupe);
+    margin-top:0.5rem;
+  }
+
+  .letter-sign{
+    text-align:right;
+    font-family:'Caveat', cursive;
+    font-size:1.6rem;
+    color:var(--blush-deep);
+    margin-top:1.5rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding:4rem 1.5rem 5rem;
+  }
+
+  footer .hand{ font-size:1.7rem; color:var(--sage-deep); }
+  footer .small{ font-size:0.85rem; color:var(--taupe-light); margin-top:0.5rem; }
+
+  .fade-in{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.in-view{ opacity:1; transform:translateY(0); }
+
+  /* ============================================================
+     SCRAPBOOK TOUCHES
+     RULE: a perfectly aligned grid reads as generated. A slight
+     tilt, a piece of tape, a hand-drawn line reads as handmade —
+     so nothing here is perfectly straight on purpose.
+     ============================================================ */
+  .section-title::after{
+    content:'';
+    display:block;
+    width:96px;
+    height:12px;
+    margin:0.7rem auto 0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M2 6 Q12 0 22 6 T42 6 T62 6 T82 6 T98 6' stroke='%23C7D4B8' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+
+  .envelope:nth-child(5n+1){ transform:rotate(-2deg); }
+  .envelope:nth-child(5n+2){ transform:rotate(1.5deg); }
+  .envelope:nth-child(5n+3){ transform:rotate(-1deg); }
+  .envelope:nth-child(5n+4){ transform:rotate(2deg); }
+  .envelope:nth-child(5n+5){ transform:rotate(-1.5deg); }
+
+  .letter-card{ transform:rotate(-0.6deg); }
+
+  /* ---------- MUSIC TOGGLE ---------- */
+  #music-toggle{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:200;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:var(--white);
+    border:1px solid var(--sage-light);
+    box-shadow:0 6px 16px var(--shadow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:var(--sage-deep);
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  #music-toggle:hover{ transform:scale(1.06); }
+  #music-toggle svg{ width:20px; height:20px; }
+  #music-toggle.playing{ background:var(--sage-pale); }
+  #music-toggle.playing svg{ animation:bob 1s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-2px); } }
+
+  /* ---------- SCRATCH CARD ---------- */
+  .scratch-wrap{
+    position:relative;
+    max-width:420px;
+    margin:0 auto;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 26px var(--shadow);
+    background:var(--white);
+    transform:rotate(0.8deg);
+  }
+  .scratch-message{
+    padding:3.2rem 2rem;
+    text-align:center;
+    font-size:1.5rem;
+    line-height:1.6;
+    color:var(--taupe);
+    min-height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .scratch-canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+    touch-action:none;
+  }
+
+  /* ---------- PRAISE COUNTDOWN + BOOM REVEAL ---------- */
+  #reveal-sequence{
+    position:fixed;
+    inset:0;
+    z-index:110;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 25% 30%, var(--sage-pale) 0%, transparent 45%),
+      radial-gradient(circle at 75% 70%, var(--blush-pale) 0%, transparent 50%),
+      var(--cream);
+    text-align:center;
+    padding:3rem 2rem;
+    overflow-y:auto;
+  }
+  #reveal-sequence.active{ display:flex; }
+
+  .reveal-step{
+    position:absolute;
+    font-family:'Caveat', cursive;
+    font-size:clamp(1.7rem, 5vw, 2.5rem);
+    color:var(--taupe);
+    max-width:80%;
+    opacity:0;
+    transform:scale(0.9);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-step.show{ opacity:1; transform:scale(1); }
+
+  .boom-step{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    max-width:640px;
+    margin:auto;
+  }
+
+  .boom-text{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(2.3rem, 8vw, 4rem);
+    line-height:1.15;
+    color:var(--taupe);
+    opacity:0;
+    transform:scale(0.7);
+    transition:opacity 0.6s cubic-bezier(.2,1.4,.4,1), transform 0.6s cubic-bezier(.2,1.4,.4,1);
+  }
+  .boom-text .her-name{ font-style:italic; color:var(--sage-deep); }
+  .boom-step.show .boom-text{ opacity:1; transform:scale(1); }
+
+  .boom-paragraph{
+    margin-top:1.6rem;
+    font-family:'Caveat', cursive;
+    font-size:1.35rem;
+    line-height:1.75;
+    color:var(--taupe-light);
+    max-width:56ch;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+  }
+  .boom-step.show .boom-paragraph{ opacity:1; transform:translateY(0); }
+
+  .reveal-continue{
+    margin-top:2.2rem;
+    font-family:'Quicksand', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    letter-spacing:0.03em;
+    color:var(--white);
+    background:var(--sage);
+    border:none;
+    padding:0.85rem 2.2rem;
+    border-radius:40px;
+    cursor:pointer;
+    box-shadow:0 8px 20px var(--shadow);
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity 0.5s ease, transform 0.5s ease, background 0.25s ease;
+  }
+  .reveal-continue.show{ opacity:1; transform:translateY(0); }
+  .reveal-continue:hover{ background:var(--sage-deep); }
+
+  #boom-confetti{ position:absolute; inset:0; pointer-events:none; }
+  .confetti-piece{
+    position:absolute;
+    width:8px; height:8px;
+    border-radius:2px;
+    opacity:0;
+    animation:confetti-burst 1.3s ease-out forwards;
+  }
+  @keyframes confetti-burst{
+    0%{ opacity:1; transform:translate(0,0) rotate(0deg); }
+    100%{ opacity:0; transform:translate(var(--dx), var(--dy)) rotate(360deg); }
+  }
+
+  /* ---------- ENVELOPE CARDS ---------- */
+  .envelope-intro{
+    text-align:center;
+    font-family:'Caveat', cursive;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--taupe-light);
+    margin-bottom:2rem;
+  }
+  .envelope-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.4rem;
+    justify-content:center;
+  }
+  .envelope{
+    width:150px;
+    height:112px;
+    perspective:900px;
+    cursor:pointer;
+  }
+  .envelope-inner{
+    position:relative;
+    width:100%; height:100%;
+    transition:transform 0.6s ease;
+    transform-style:preserve-3d;
+  }
+  .envelope.open .envelope-inner{ transform:rotateY(180deg); }
+  .envelope-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border-radius:14px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:0.9rem;
+    box-shadow:0 6px 16px var(--shadow);
+  }
+  .envelope-front{ background:var(--blush-pale); }
+  .envelope-front svg{ width:32px; height:32px; color:var(--blush-deep); margin-bottom:0.5rem; }
+  .envelope-front span{ font-family:'Caveat', cursive; font-size:1rem; color:var(--taupe-light); }
+  .envelope-back{
+    background:var(--white);
+    transform:rotateY(180deg);
+    font-family:'Caveat', cursive;
+    font-size:1.02rem;
+    line-height:1.5;
+    text-align:center;
+    color:var(--taupe);
+  }
+
+  /* ---------- MUSIC TOOLTIP ---------- */
+  .music-tip{
+    position:fixed;
+    right:20px;
+    bottom:82px;
+    z-index:200;
+    background:var(--white);
+    border:1px solid var(--sage-light);
+    border-radius:14px;
+    padding:0.6rem 0.95rem;
+    font-family:'Caveat', cursive;
+    font-size:1.05rem;
+    color:var(--taupe);
+    box-shadow:0 6px 16px var(--shadow);
+    max-width:190px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity 0.4s ease, transform 0.4s ease;
+    pointer-events:none;
+  }
+  .music-tip.show{ opacity:1; transform:translateY(0); }
+
+  /* ============================================================
+     GATE SCREEN — the very first thing she sees
+     RULE: one small, delightful action before anything else is
+     asked of her. A tap that visibly does something (envelope
+     opens, teddy reacts) earns her attention for what follows.
+     ============================================================ */
+  #gate-screen{
+    position:fixed;
+    inset:0;
+    z-index:150;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:1.8rem;
+    background:
+      radial-gradient(circle at 30% 25%, var(--sage-pale) 0%, transparent 45%),
+      radial-gradient(circle at 70% 75%, var(--blush-pale) 0%, transparent 50%),
+      var(--cream);
+    cursor:pointer;
+    transition:opacity 0.7s ease;
+  }
+  #gate-screen.fading{ opacity:0; pointer-events:none; }
+
+  .gate-scene{
+    position:relative;
+    width:220px;
+    height:190px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+
+  .gate-envelope{ position:relative; width:150px; height:104px; perspective:500px; }
+  .gate-envelope-body{
+    position:absolute; inset:0;
+    background:var(--white);
+    border-radius:10px;
+    box-shadow:0 14px 30px var(--shadow);
+  }
+  .gate-envelope-letter{
+    position:absolute;
+    left:12%; right:12%; bottom:6px;
+    height:72%;
+    background:var(--cream-deep);
+    border-radius:6px 6px 0 0;
+    box-shadow:0 -2px 6px var(--shadow);
+    transform:translateY(18%);
+    transition:transform 0.7s ease 0.25s;
+    z-index:1;
+  }
+  .gate-scene.opening .gate-envelope-letter{ transform:translateY(-48%); }
+
+  .gate-envelope-flap{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:52%;
+    background:var(--blush-pale);
+    clip-path:polygon(0 0, 100% 0, 50% 100%);
+    transform-origin:top;
+    transition:transform 0.75s ease;
+    z-index:2;
+  }
+  .gate-scene.opening .gate-envelope-flap{ transform:rotateX(180deg); }
+
+  .gate-rose{
+    position:absolute;
+    top:-30px; left:50%;
+    transform:translateX(-50%) rotate(-6deg);
+    z-index:3;
+    transition:opacity 0.5s ease, transform 0.6s ease;
+  }
+  .gate-scene.opening .gate-rose{
+    opacity:0;
+    transform:translateX(-50%) translateY(-32px) rotate(12deg) scale(1.2);
+  }
+
+  .gate-teddy{
+    position:absolute;
+    right:-34px; bottom:-10px;
+    z-index:4;
+    cursor:pointer;
+    animation:teddy-bob 1.8s ease-in-out infinite;
+  }
+  .gate-scene.opening .gate-teddy{ animation:teddy-cheer 0.7s ease; }
+
+  @keyframes teddy-bob{
+    0%,100%{ transform:translateY(0) rotate(-3deg); }
+    50%{ transform:translateY(-7px) rotate(3deg); }
+  }
+  @keyframes teddy-cheer{
+    0%{ transform:scale(1) rotate(0deg); }
+    40%{ transform:scale(1.18) rotate(-8deg); }
+    100%{ transform:scale(1.05) rotate(0deg); }
+  }
+
+  .teddy-bubble{
+    position:absolute;
+    top:-46px; left:50%;
+    transform:translateX(-50%);
+    background:var(--white);
+    border-radius:14px;
+    padding:0.45rem 0.85rem;
+    font-family:'Caveat', cursive;
+    font-size:1.05rem;
+    color:var(--taupe);
+    box-shadow:0 4px 12px var(--shadow);
+    white-space:nowrap;
+    animation:bubble-pulse 1.8s ease-in-out infinite;
+  }
+  .teddy-bubble::after{
+    content:'';
+    position:absolute;
+    bottom:-6px; left:50%;
+    transform:translateX(-50%);
+    border-width:6px 6px 0;
+    border-style:solid;
+    border-color:var(--white) transparent transparent;
+  }
+  @keyframes bubble-pulse{
+    0%,100%{ transform:translateX(-50%) scale(1); }
+    50%{ transform:translateX(-50%) scale(1.05); }
+  }
+
+  .gate-hint{
+    font-family:'Caveat', cursive;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--taupe-light);
+    animation:bubble-pulse 2.4s ease-in-out infinite;
+  }
+
+</style>
+</head>
+<body>
+
+<!--
+  MUSIC — drop an mp3 named "song.mp3" in the same folder as this HTML file
+  and it'll just work. Want a different filename? Change the src below.
+-->
+<audio id="bgm" loop preload="none">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" aria-label="toggle background music">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18V5l12-2v13"></path>
+    <circle cx="6" cy="18" r="3"></circle>
+    <circle cx="18" cy="16" r="3"></circle>
+  </svg>
+</button>
+<div class="music-tip" id="music-tip">turn me up a little 🎧 — it's better with the volume up</div>
+
+<div id="reveal-sequence">
+  <div class="reveal-step" data-step="0">to the softest heart i know..</div>
+  <div class="reveal-step" data-step="1">to the strongest girl in the world..</div>
+  <div class="reveal-step" data-step="2">to my safe space..</div>
+  <div class="reveal-step boom-step" data-step="3">
+    <div id="boom-confetti"></div>
+    <h1 class="boom-text">happy 19th birthday,<br><span class="her-name">fizaaa</span></h1>
+    <p class="boom-paragraph hand">I don't know if I've ever been able to tell you this properly, but thank you... for becoming such an important part of my life.
+It's funny how two strangers met one random day on Omegle, and somehow, without either of us planning it, we ended up talking every single day for more than a year. Somewhere between those endless chats, late-night conversations, random discussions, Discord study sessions, solving questions together, making comeback plans that we never really followed, and those long voice calls in the beginning... you slowly became one of my favourite people. Now, talking to you doesn't feel like a habit anymore—it feels like a part of my day that's simply incomplete without you.
+Whenever I think about this journey, one memory always stays closest to my heart. During my board exams, when I was alone in another state, you were always there. Every message, every "you can do it," every little bit of support meant so much more than you probably realized. Those moments are something I'll carry with me forever. Thank you for standing beside me when I needed someone. I'll never forget it.
+There is something about you that I've always admired. You're kind in a way that's so effortless. You understand people without making them feel judged. Even during the times when I acted immaturely, got angry over silly things, or made absolutely no sense, you never made me feel like I was a bad person. Instead, you always reminded me that you knew the real Abhinav. That trust you've shown me... it's one of the most precious things I've ever received, and I hope I always remain someone worthy of it.
+Now I want you to listen to me carefully, because this is probably the most important thing I'll ever say to you.
+Please stop being so hard on yourself.
+I know you think you've wasted too much time. I know you feel guilty about the months that slipped away after boards. I know JEE sometimes feels scary enough to make you question yourself. But Fiza, your journey isn't defined by a few difficult months. Those months don't decide your future—you do.
+Whenever your mind tells you that you're running out of time, I want you to remember this letter. There is still so much time left to write the story we're dreaming about. One chapter can never decide the ending of a book.
+And about Physics...
+I know you don't always feel confident with it, but from today onwards, I want you to remember one thing: you are never fighting Physics alone.
+Whenever a chapter feels impossible, whenever a question refuses to get solved, whenever you feel like giving up—I want you to send it to me without thinking twice. We'll sit together, we'll solve it together, and we'll keep trying until it finally makes sense. I don't care if it takes ten minutes or ten hours. I promise you this with my whole heart: I won't let Physics become the reason you stop believing in yourself.
+You're carrying enough pressure already. Let me carry some of it with you.
+Because that's what teammates do.
+And yes... teammates are exactly what we are.
+We're going to fight this battle together. We'll have good days, terrible days, productive days, lazy days, days when we'll feel like we're on top of the world and days when we'll feel like we've forgotten everything. But through every single one of them, I hope you remember one thing—
+You're not alone anymore.
+Whenever you feel tired, I'll remind you why you started.
+Whenever you feel scared, I'll remind you how capable you are.
+Whenever you lose confidence, I'll believe in you until you find your own belief again.
+And when I have those days, I know you'll probably do the same for me.
+I genuinely believe that one day we'll look back at these stressful days and smile. We'll remember the endless syllabus, the panic before mock tests, the random study sessions, the complaints, the motivation speeches, and laugh about how impossible everything used to feel.</p>
+    <button class="reveal-continue" id="reveal-continue">keep going →</button>
+  </div>
+</div>
+
+<div id="main-site">
+
+  <section id="hero">
+    <span class="hero-eyebrow">a little corner of the internet, just for u</span>
+    <h1 class="hero-title">happy birthday, <span class="her-name">bestie</span></h1>
+    <p class="hero-sub">i'll try to find the right words for how much you mean to me!</p>
+    <div class="divider"></div>
+  </section>
+
+  <section id="timeline">
+    <span class="section-eyebrow">our storyy so far</span>
+    <h2 class="section-title">a timelinee</h2>
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">the besttt year</div>
+        <div class="timeline-card">
+          <h3>god's plan fs</h3>
+          <p>i still wonder how lucky that moment was. what were the chances that i would meet you? we could have skipped each other in a second, our chat could have ended like every other random convo, and we might have never spoken again. but somehow, none of that happened. We Stayed! We Talked! and you became the most precious parts of my life. </p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">today</div>
+        <div class="timeline-card">
+          <h3>and now, this</h3>
+          <p>a little site, built because you deserve!!!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="letter">
+    <span class="section-eyebrow">the part I actually sat down to write</span>
+    <h2 class="section-title">a whole paragraph, for you</h2>
+    <div class="letter-card fade-in">
+      <div class="letter-mark">"</div>
+      <p class="letter-text">
+        We'll celebrate. We'll go to Lucknow. We'll eat Tunday Kababi without worrying about the next day's syllabus. We'll laugh at all the things that once stressed us out. We'll finally breathe.
+
+I don't know which college life will take us to.
+
+But I do know this.
+
+I'm going to work as hard as I possibly can, not just for myself, but because I genuinely want both of us to end up in colleges we're proud of. Deep down, I still hope that destiny is kind enough to let us walk into the same campus one day. And if that happens, I think it'll be one of the happiest moments of my life.
+
+But no matter where we end up, promise me one thing.
+
+Don't ever measure your worth using a rank.
+
+An exam can decide a college.
+
+It can never decide the kind of person you are.
+
+And you, Fiza, are already someone incredibly special.
+
+You're thoughtful.
+
+You're patient.
+
+You're strong, even when you don't realize it.
+
+You make people feel safe.
+
+You make people feel heard.
+
+And you've made my life better simply by being in it.
+
+Thank you for every conversation.
+
+Thank you for every laugh.
+
+Thank you for every moment you believed in me.
+
+Thank you for making ordinary days feel special without even trying.
+
+I don't know what the future holds for us.
+
+But I do know one thing with complete certainty—
+
+No matter how difficult this journey gets, you'll always have someone cheering for you, praying for you, believing in you, and reminding you that you're capable of achieving things far bigger than your fears.
+
+So on your birthday, I don't wish for miracles.
+
+I wish for your smile to stay exactly the way it is.
+
+I wish for your confidence to grow stronger every day.
+
+I wish for peace in your heart.
+
+I wish for happiness that doesn't depend on marks or ranks.
+
+And I wish that one year from now, we'll both read this again—from the campuses we worked so hard to reach—and smile because we never gave up on ourselves... or on each other.
+
+Happy Birthday, Fiza.
+
+Thank you for existing.
+
+And thank you for making this journey so much brighter than it would've ever been without you.
+
+Here's to our comeback.
+
+Here's to JEE.
+
+Here's to us proving ourselves.
+
+And here's to meeting one day after all of this, sitting together with a plate of Tunday Kababi, laughing at how scared we once were.
+
+Until then...
+
+You've got this.
+
+And whenever you forget that...
+
+You've got me.
+      </p>
+      <p class="letter-sign">— love, always</p>
+    </div>
+  </section>
+
+  <section id="scratch">
+    <span class="section-eyebrow">ok, one more thing</span>
+    <h2 class="section-title">scratch to find out</h2>
+    <div class="scratch-wrap fade-in">
+      <div class="scratch-message hand" id="scratch-message">if you're reading this, i'm probably cheering for u rn. drink some water, take a deep breath, and start again. abhinav hasn't given up, so fiza is not allowed to give up either. I BELIEVE IN YOUU!!! (hug)</div>
+      <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
+    </div>
+    <p style="text-align:center; font-size:0.85rem; color:var(--taupe-light); margin-top:1.2rem;"></p>
+  </section>
+
+  <section id="proud">
+    <span class="section-eyebrow">scratch this whenever jee feels overwhelming and you forget how strong u're</span>
+    <h2 class="section-title">things I'm proud of you for</h2>
+    <p class="envelope-intro">tap an envelope to open it</p>
+    <div class="envelope-grid">
+
+      <div class="envelope fade-in">
+        <div class="envelope-inner">
+          <div class="envelope-face envelope-front">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+            <span>open me</span>
+          </div>
+          <div class="envelope-face envelope-back">im proud of how strong u are</div>
+        </div>
+      </div>
+
+      <div class="envelope fade-in">
+        <div class="envelope-inner">
+          <div class="envelope-face envelope-front">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+            <span>open me</span>
+          </div>
+          <div class="envelope-face envelope-back">im proud of how mature u are</div>
+        </div>
+      </div>
+
+      <div class="envelope fade-in">
+        <div class="envelope-inner">
+          <div class="envelope-face envelope-front">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+            <span>open me</span>
+          </div>
+          <div class="envelope-face envelope-back">im proud of how deeply you care for people</div>
+        </div>
+      </div>
+
+      <div class="envelope fade-in">
+        <div class="envelope-inner">
+          <div class="envelope-face envelope-front">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+            <span>open me</span>
+          </div>
+          <div class="envelope-face envelope-back">and of our tunday kabab promisee</div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <footer>
+    <p class="hand">happy birthday, my favorite person 🌿</p>
+    <p class="small">made with love — apka abhinav</p>
+  </footer>
+
+</div>
+
+<script>
+
+  /* ============================================================
+     EDIT ME — set her real name here.
+     Every ".her-name" element on the page updates automatically.
+     ============================================================ */
+  const CONFIG = {
+    herName: "fiza"
+  };
+
+  document.querySelectorAll('.her-name').forEach(el => { el.textContent = CONFIG.herName; });
+
+  const mainSite = document.getElementById('main-site');
+
+  const bgm = document.getElementById('bgm');
+  const musicToggle = document.getElementById('music-toggle');
+  let musicPlaying = false;
+
+  function setMusic(playing){
+    musicPlaying = playing;
+    musicToggle.classList.toggle('playing', playing);
+    if(playing){ bgm.play().catch(() => {}); } else { bgm.pause(); }
+  }
+
+  musicToggle.addEventListener('click', () => setMusic(!musicPlaying));
+
+  function showMusicTip(){
+    const tip = document.getElementById('music-tip');
+    tip.classList.add('show');
+    setTimeout(() => tip.classList.remove('show'), 4500);
+  }
+
+  function burstConfetti(){
+    const container = document.getElementById('boom-confetti');
+    const colors = ['#E8BFBB', '#C7D4B8', '#C9A66B', '#D99992'];
+    for(let k = 0; k < 22; k++){
+      const p = document.createElement('div');
+      p.className = 'confetti-piece';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 90 + Math.random() * 130;
+      p.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      p.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+      p.style.left = '50%';
+      p.style.top = '50%';
+      p.style.background = colors[k % colors.length];
+      p.style.animationDelay = (Math.random() * 0.15) + 's';
+      container.appendChild(p);
+    }
+    setTimeout(() => { container.innerHTML = ''; }, 1600);
+  }
+
+  function playRevealSequence(){
+    const seq = document.getElementById('reveal-sequence');
+    seq.classList.add('active');
+    const steps = Array.from(seq.querySelectorAll('.reveal-step'));
+    let i = 0;
+
+    function step(){
+      if(i > 0) steps[i - 1].classList.remove('show');
+      if(i >= steps.length){ finish(); return; }
+      const el = steps[i];
+      el.classList.add('show');
+      if(el.classList.contains('boom-step')){
+        burstConfetti();
+        const continueBtn = document.getElementById('reveal-continue');
+        setTimeout(() => continueBtn.classList.add('show'), 1400);
+        continueBtn.addEventListener('click', finish, { once:true });
+      } else {
+        setTimeout(() => { i++; step(); }, 1500);
+      }
+    }
+
+    function finish(){
+      seq.classList.remove('active');
+      mainSite.classList.add('revealed');
+      document.body.style.overflow = 'auto';
+      setMusic(true); /* this whole sequence started from a real click, so autoplay is allowed */
+      showMusicTip();
+    }
+
+    step();
+  }
+
+  document.querySelectorAll('.envelope').forEach(env => {
+    env.addEventListener('click', () => env.classList.toggle('open'));
+  });
+
+  document.body.style.overflow = 'hidden';
+
+  const container = document.getElementById('reveal-sequence');
+  const petalCount = 14;
+  for(let i=0;i<petalCount;i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const size = 8 + Math.random()*10;
+    p.style.width = size+'px';
+    p.style.height = size+'px';
+    p.style.left = Math.random()*100+'%';
+    p.style.bottom = '-20px';
+    p.style.background = i % 2 === 0 ? 'var(--sage-light)' : 'var(--blush)';
+    p.style.animationDuration = (8 + Math.random()*8)+'s';
+    p.style.animationDelay = (Math.random()*8)+'s';
+    container.appendChild(p);
+  }
+
+  playRevealSequence(); /* the site opens straight into the praise sequence — no landing page */
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in, .timeline-item, .envelope')
+    .forEach(el => observer.observe(el));
+
+  function initScratch(){
+    const canvas = document.getElementById('scratch-canvas');
+    const wrap = canvas.parentElement;
+    const rect = wrap.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = '#E8BFBB';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.textAlign = 'center';
+    ctx.font = '600 15px Quicksand, sans-serif';
+    ctx.fillText('scratch here ✦', canvas.width / 2, canvas.height / 2 - 8);
+    ctx.font = 'italic 13px Georgia, serif';
+    ctx.fillText('(click and drag)', canvas.width / 2, canvas.height / 2 + 14);
+
+    let isDown = false;
+    let revealed = false;
+
+    function getPos(e){
+      const r = canvas.getBoundingClientRect();
+      const cx = e.touches ? e.touches[0].clientX : e.clientX;
+      const cy = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: cx - r.left, y: cy - r.top };
+    }
+
+    function scratchAt(x, y){
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 24, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function checkCleared(){
+      if(revealed) return;
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      let cleared = 0;
+      const samples = 300;
+      for(let i = 0; i < samples; i++){
+        const idx = Math.floor(Math.random() * (data.length / 4)) * 4;
+        if(data[idx + 3] < 50) cleared++;
+      }
+      if(cleared / samples > 0.45){
+        revealed = true;
+        canvas.style.transition = 'opacity 0.6s ease';
+        canvas.style.opacity = '0';
+        setTimeout(() => { canvas.style.pointerEvents = 'none'; }, 600);
+      }
+    }
+
+    function start(e){ isDown = true; const p = getPos(e); scratchAt(p.x, p.y); }
+    function move(e){
+      if(!isDown) return;
+      if(e.cancelable) e.preventDefault();
+      const p = getPos(e);
+      scratchAt(p.x, p.y);
+      checkCleared();
+    }
+    function stop(){ isDown = false; }
+
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', stop);
+    canvas.addEventListener('touchstart', start, { passive:true });
+    canvas.addEventListener('touchmove', move, { passive:false });
+    canvas.addEventListener('touchend', stop);
+  }
+
+  window.addEventListener('load', () => setTimeout(initScratch, 60));
+
+</script>
+
+</body>
+</html>
