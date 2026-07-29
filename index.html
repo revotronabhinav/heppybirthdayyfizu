@@ -56,9 +56,6 @@
 
   img { max-width:100%; display:block; }
 
-  /* ============================================================
-     FLOATING PETALS
-     ============================================================ */
   .petal{
     position:absolute;
     border-radius:50% 0 50% 50%;
@@ -73,9 +70,6 @@
     100%{ transform:translateY(-110vh) rotate(200deg); opacity:0; }
   }
 
-  /* ============================================================
-     MAIN SITE
-     ============================================================ */
   #main-site{
     opacity:0;
     transition:opacity 1.2s ease;
@@ -88,7 +82,6 @@
     margin:0 auto;
   }
 
-  /* ---------- HERO ---------- */
   #hero{
     text-align:center;
     padding-top:7rem;
@@ -128,7 +121,6 @@
     border-radius:2px;
   }
 
-  /* ---------- SECTION HEADERS ---------- */
   .section-eyebrow{
     font-family:'Caveat', cursive;
     font-size:1.4rem;
@@ -143,7 +135,6 @@
     margin:0.2rem 0 3rem;
   }
 
-  /* ---------- TIMELINE ---------- */
   .timeline{
     position:relative;
     padding-left:0;
@@ -212,7 +203,6 @@
     .timeline-item::after{ left:11px !important; right:auto !important; }
   }
 
-  /* ---------- LETTER ---------- */
   .letter-card{
     background:var(--white);
     border-radius:24px;
@@ -245,7 +235,6 @@
     margin-top:1.5rem;
   }
 
-  /* ---------- FOOTER ---------- */
   footer{
     text-align:center;
     padding:4rem 1.5rem 5rem;
@@ -278,9 +267,6 @@
   }
   .fade-in.in-view{ opacity:1; transform:translateY(0); }
 
-  /* ============================================================
-     SCRAPBOOK TOUCHES
-     ============================================================ */
   .section-title::after{
     content:'';
     display:block;
@@ -300,7 +286,6 @@
 
   .letter-card{ transform:rotate(-0.6deg); }
 
-  /* ---------- MUSIC TOGGLE ---------- */
   #music-toggle{
     position:fixed;
     right:20px;
@@ -325,7 +310,6 @@
   #music-toggle.playing svg{ animation:bob 1s ease-in-out infinite; }
   @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-2px); } }
 
-  /* ---------- SCRATCH CARD ---------- */
   .scratch-wrap{
     position:relative;
     max-width:420px;
@@ -356,7 +340,6 @@
     touch-action:none;
   }
 
-  /* ---------- PRAISE COUNTDOWN + BOOM REVEAL ---------- */
   #reveal-sequence{
     position:fixed;
     inset:0;
@@ -389,7 +372,6 @@
   }
   .reveal-step.show{ opacity:1; transform:translate(-50%, -50%) scale(1); }
 
-  /* FIXED BOOM-STEP LAYOUT ALIGNMENT */
   .boom-step{
     position:relative !important;
     top:auto !important;
@@ -417,7 +399,6 @@
   .boom-text .her-name{ font-style:italic; color:var(--sage-deep); }
   .boom-step.show .boom-text{ opacity:1; transform:scale(1); }
 
-  /* ---------- THEN & NOW PHOTOS ---------- */
   .boom-photos-wrap{
     position:relative;
     margin-top:1.6rem;
@@ -437,19 +418,19 @@
 
   .photo-frame{
     position:relative;
-    width:118px;
+    width:190px;
     background:var(--white);
-    padding:0.5rem 0.5rem 0.8rem;
-    border-radius:10px;
-    box-shadow:0 10px 22px var(--shadow);
+    padding:0.7rem 0.7rem 1.1rem;
+    border-radius:12px;
+    box-shadow:0 12px 26px var(--shadow);
   }
   .photo-frame:nth-child(1){ transform:rotate(-4deg); }
   .photo-frame:nth-child(3){ transform:rotate(4deg); }
 
   .photo-tape{
     position:absolute;
-    top:-8px; left:50%;
-    width:44px; height:16px;
+    top:-9px; left:50%;
+    width:58px; height:20px;
     background:rgba(255,255,255,0.65);
     transform:translateX(-50%) rotate(-4deg);
     border-radius:2px;
@@ -462,37 +443,37 @@
     width:100%;
     aspect-ratio:1/1;
     object-fit:cover;
-    border-radius:5px;
+    border-radius:6px;
   }
 
   .photo-placeholder{
     width:100%;
     aspect-ratio:1/1;
-    border-radius:5px;
+    border-radius:6px;
     background:var(--sage-pale);
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    gap:0.3rem;
+    gap:0.4rem;
     color:var(--taupe-light);
-    font-size:0.62rem;
+    font-size:0.72rem;
     line-height:1.3;
     text-align:center;
-    padding:0.5rem;
+    padding:0.6rem;
   }
   .photo-frame:nth-child(3) .photo-placeholder{ background:var(--blush-pale); }
 
   .photo-caption{
-    margin-top:0.5rem;
+    margin-top:0.6rem;
     text-align:center;
     font-family:'Caveat', cursive;
-    font-size:0.95rem;
+    font-size:1.1rem;
     color:var(--taupe-light);
   }
 
   .photo-connector{ color:var(--blush-deep); animation:bubble-pulse 2s ease-in-out infinite; }
-  .photo-connector svg{ width:24px; height:24px; }
+  .photo-connector svg{ width:28px; height:28px; }
 
   .boom-doodle{ position:absolute; opacity:0.8; pointer-events:none; animation:twinkle 2.4s ease-in-out infinite; }
   @keyframes twinkle{
@@ -550,7 +531,6 @@
     100%{ opacity:0; transform:translate(var(--dx), var(--dy)) rotate(360deg); }
   }
 
-  /* ---------- ENVELOPE CARDS ---------- */
   .envelope-intro{
     text-align:center;
     font-family:'Caveat', cursive;
@@ -602,7 +582,6 @@
     color:var(--taupe);
   }
 
-  /* ---------- MUSIC TOOLTIP ---------- */
   .music-tip{
     position:fixed;
     right:20px;
@@ -624,9 +603,6 @@
   }
   .music-tip.show{ opacity:1; transform:translateY(0); }
 
-  /* ============================================================
-     GATE SCREEN
-     ============================================================ */
   #gate-screen{
     position:fixed;
     inset:0;
@@ -643,6 +619,7 @@
     cursor:pointer;
     transition:opacity 0.7s ease;
     overflow:hidden;
+    padding:2rem;
   }
   #gate-screen.fading{ opacity:0; pointer-events:none; }
 
@@ -751,6 +728,9 @@
     font-style:italic;
     font-size:1.2rem;
     color:var(--taupe-light);
+    text-align:center;
+    width:290px;
+    align-self:center;
     animation:bubble-pulse 2.4s ease-in-out infinite;
   }
 
@@ -775,10 +755,12 @@
 <body>
 
 <!--
-  MUSIC — drop an mp3 named "song.mp3" in the same folder as this HTML file
-  and it'll just work. Want a different filename? Change the src below.
+  MUSIC — drop an mp3 named "song.mp3" in the same folder as this HTML file.
+  She starts it herself by tapping the music note button (bottom-right) —
+  mobile browsers are unreliable about auto-starting audio from a tap
+  elsewhere on the page, so this stays a manual, always-reliable tap.
 -->
-<audio id="bgm" loop preload="none">
+<audio id="bgm" loop preload="auto">
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 <button id="music-toggle" aria-label="toggle background music">
@@ -806,7 +788,7 @@
       <div class="gate-envelope-flap"></div>
     </div>
     <div class="gate-teddy">
-      <div class="teddy-bubble hand">hiee cutie, click croww! 🐾</div>
+      <div class="teddy-bubble hand">hiee cutie, open itt! 🐾</div>
       <svg width="86" height="86" viewBox="0 0 120 120">
         <circle cx="28" cy="28" r="15" fill="#C9A66B"></circle>
         <circle cx="92" cy="28" r="15" fill="#C9A66B"></circle>
@@ -823,16 +805,16 @@
 
   <div class="gate-music-note hand">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-    <span>grab ur earphonesss🎧</span>
+    <span>smol efforts for the girl who always makes me feel so special, now it's my turn!! i hope this makes you smile ^.^</span>
   </div>
 
-  <p class="gate-hint">smol efforts for the girl who always makes me feel so special, now it's my turn!! i hope this makes you smile ^.^</p>
+  <p class="gate-hint">...</p>
 </div>
 
 <div id="reveal-sequence">
-  <div class="reveal-step" data-step="0">to the softest heart i know..</div>
-  <div class="reveal-step" data-step="1">to the strongest girl in the world..</div>
-  <div class="reveal-step" data-step="2">to my safe space..</div>
+  <div class="reveal-step" data-step="0">to the strongest girl in the world..</div>
+  <div class="reveal-step" data-step="1">to my safe space.</div>
+  <div class="reveal-step" data-step="2">tap the music icon on ur right, and grab ur earphoness!</div>
   <div class="reveal-step boom-step" data-step="3">
     <div id="boom-confetti"></div>
     <h1 class="boom-text">happyyy 19th birthdayyy,<br><span class="her-name">fizaaa</span></h1>
@@ -845,10 +827,10 @@
       <div class="boom-photos">
         <div class="photo-frame">
           <div class="photo-tape"></div>
-          <img src="her-then.jpg" alt="her as a kid" class="boom-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="her-then.jpeg" alt="her as a kid" class="boom-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="photo-placeholder" style="display:none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-            <span>save her childhood photo as "her-then.jpg" next to this file</span>
+            <span>save her childhood photo as "her-then.jpeg" next to this file</span>
           </div>
           <p class="photo-caption">awww 🌱</p>
         </div>
@@ -859,10 +841,10 @@
 
         <div class="photo-frame">
           <div class="photo-tape"></div>
-          <img src="her-now.jpg" alt="her now" class="boom-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="her-now.jpeg" alt="her now" class="boom-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="photo-placeholder" style="display:none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-            <span>save her current photo as "her-now.jpg" next to this file</span>
+            <span>save her current photo as "her-now.jpeg" next to this file</span>
           </div>
           <p class="photo-caption">AWWW 💛</p>
         </div>
@@ -909,7 +891,7 @@
   </section>
 
   <section id="letter">
-    <span class="section-eyebrow">uhmm, the part I actually sat down to write</span>
+    <span class="section-eyebrow">the part I actually sat down to write</span>
     <h2 class="section-title">a paragraph, for youuu</h2>
     <div class="letter-card fade-in">
       <div class="letter-mark">"</div>
@@ -1019,7 +1001,7 @@ I genuinely believe that one day we'll look back at these stressful days and smi
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
             <span>open me</span>
           </div>
-          <div class="envelope-face envelope-back">aur han, im really sorry for the fights we had. </div>
+          <div class="envelope-face envelope-back">im really sorry for the fights we had. </div>
         </div>
       </div>
 
@@ -1029,7 +1011,7 @@ I genuinely believe that one day we'll look back at these stressful days and smi
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
             <span>open me</span>
           </div>
-          <div class="envelope-face envelope-back"> i apologise for all my statements that hurted you (please bhul jao sb).  </div>
+          <div class="envelope-face envelope-back">i apologise for all my statements that hurted you (please bhul jao sb).  </div>
         </div>
       </div>    
 
@@ -1056,10 +1038,6 @@ I genuinely believe that one day we'll look back at these stressful days and smi
 
 <script>
 
-  /* ============================================================
-     EDIT ME — set her real name here.
-     Every ".her-name" element on the page updates automatically.
-     ============================================================ */
   const CONFIG = {
     herName: "fizaaa"
   };
@@ -1078,13 +1056,17 @@ I genuinely believe that one day we'll look back at these stressful days and smi
     if(playing){ bgm.play().catch(() => {}); } else { bgm.pause(); }
   }
 
-  musicToggle.addEventListener('click', () => setMusic(!musicPlaying));
-
   function showMusicTip(){
     const tip = document.getElementById('music-tip');
     tip.classList.add('show');
     setTimeout(() => tip.classList.remove('show'), 4500);
   }
+
+  musicToggle.addEventListener('click', () => {
+    const turningOn = !musicPlaying;
+    setMusic(turningOn);
+    if(turningOn) showMusicTip();
+  });
 
   function burstConfetti(){
     const container = document.getElementById('boom-confetti');
@@ -1163,12 +1145,10 @@ I genuinely believe that one day we'll look back at these stressful days and smi
   function openGate(){
     if(gateScene.classList.contains('opening')) return;
     gateScene.classList.add('opening');
-    setMusic(true); /* she just tapped the gate — that's a real user gesture, so the music can start right here */
-    showMusicTip();
     setTimeout(() => { gateScreen.classList.add('fading'); }, 900);
     setTimeout(() => {
       gateScreen.style.display = 'none';
-      playRevealSequence(); /* countdown/praise sequence begins only after she opens the gate */
+      playRevealSequence();
     }, 1650);
   }
 
